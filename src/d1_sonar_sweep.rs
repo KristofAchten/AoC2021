@@ -1,36 +1,39 @@
-use std::fs;
+use crate::get_input_for_day;
 
 pub fn sonar_sweep() {
-    let input = fs::read_to_string("src/input/input.txt").expect("Unable to read file");
-    let nums: Vec<String> = input.split("\n").map(str::to_string).collect();
+    let nums: Vec<String> = get_input_for_day(1).split("\n").map(str::to_string).collect();
 
     let mut prev_num = 90000;
+    let mut prev_threesome_num = 90000;
     let mut cnt = 0;
-    for s_of_num in &nums {
-        let num = s_of_num.trim().parse::<i32>().unwrap();
-        if num > prev_num {
+    let mut threesome_cnt = 0;
+    let mut i = 0;
+
+    while i < nums.len() {
+        let n1 = to_int(&nums[i]);
+
+        if n1 > prev_num {
             cnt += 1;
         }
-        prev_num = num;
-    }
+        prev_num = n1;
 
-    prev_num = 90000;
-    let mut triple_cnt = 0;
+        if i > 1 {
+            let n2 = to_int(&nums[i - 1]);
+            let n3 = to_int(&nums[i - 2]);
+            let sum = n1 + n2 + n3;
 
-
-    let mut i = 2;
-    while i < nums.len() {
-        let n1 = nums[i].trim().parse::<i32>().unwrap();
-        let n2 = nums[i - 1].trim().parse::<i32>().unwrap();
-        let n3 = nums[i - 2].trim().parse::<i32>().unwrap();
-
-        let new = n1 + n2 + n3;
-        if new > prev_num {
-            triple_cnt += 1
+            if sum > prev_threesome_num {
+                threesome_cnt += 1
+            }
+            prev_threesome_num = sum
         }
-        prev_num = new;
-        i += 1
+
+        i += 1;
     }
 
-    println!("Result part 1: {} - Result part 2: {}", cnt, triple_cnt)
+    println!("part 1 = {} ; part 2 = {}", cnt, threesome_cnt)
+}
+
+fn to_int(str: &String) -> i32 {
+    return str.trim().parse::<i32>().unwrap();
 }
