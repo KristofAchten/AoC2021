@@ -11,3 +11,7 @@ pub fn get_input_for_day(day: i8) -> String {
     let path = format!("src/input/d{}_input.txt", day);
     return fs::read_to_string(path).expect("Unable to read file")
 }
+
+pub fn to_int_32(str: &String) -> i32 {
+    return str.trim().parse::<i32>().unwrap();
+}

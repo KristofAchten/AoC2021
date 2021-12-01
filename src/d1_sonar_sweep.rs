@@ -1,4 +1,4 @@
-use crate::get_input_for_day;
+use crate::{get_input_for_day, to_int_32};
 
 pub fn sonar_sweep() {
     let nums: Vec<String> = get_input_for_day(1).split("\n").map(str::to_string).collect();
@@ -10,7 +10,7 @@ pub fn sonar_sweep() {
     let mut i = 0;
 
     while i < nums.len() {
-        let n1 = to_int(&nums[i]);
+        let n1 = to_int_32(&nums[i]);
 
         if n1 > prev_num {
             cnt += 1;
@@ -18,8 +18,8 @@ pub fn sonar_sweep() {
         prev_num = n1;
 
         if i > 1 {
-            let n2 = to_int(&nums[i - 1]);
-            let n3 = to_int(&nums[i - 2]);
+            let n2 = to_int_32(&nums[i - 1]);
+            let n3 = to_int_32(&nums[i - 2]);
             let sum = n1 + n2 + n3;
 
             if sum > prev_threesome_num {
@@ -32,8 +32,4 @@ pub fn sonar_sweep() {
     }
 
     println!("part 1 = {} ; part 2 = {}", cnt, threesome_cnt)
-}
-
-fn to_int(str: &String) -> i32 {
-    return str.trim().parse::<i32>().unwrap();
 }
