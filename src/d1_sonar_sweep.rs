@@ -1,7 +1,7 @@
-use crate::{get_input_for_day, to_int_32};
+use crate::{get_input_for_day, split_on, to_int_32};
 
 pub fn sonar_sweep() {
-    let nums: Vec<String> = get_input_for_day(1).split("\n").map(str::to_string).collect();
+    let nums: Vec<String> = split_on(&get_input_for_day(1), "\n");
 
     let mut prev_num = 90000;
     let mut prev_threesome_num = 90000;
