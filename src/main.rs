@@ -2,15 +2,18 @@ use std::fs;
 use crate::d1_sonar_sweep::sonar_sweep;
 use crate::d2_submarine_movement::move_submarine;
 use crate::d3_binary_diagnostic::run_diagnostic;
+use crate::d4_bingo::play_bingo;
 
 mod d1_sonar_sweep;
 mod d2_submarine_movement;
 mod d3_binary_diagnostic;
+mod d4_bingo;
 
 fn main() {
     print!("Day 1 - 'Sonar Sweep' results: "); sonar_sweep();
     print!("Day 2 - 'Submarine Movement' results: "); move_submarine();
     print!("Day 3 - 'Binary Diagnostics' results: "); run_diagnostic();
+    print!("Day 4 - 'Bingo!' results: "); play_bingo();
 }
 
 pub fn get_input_for_day(day: i8) -> String {
