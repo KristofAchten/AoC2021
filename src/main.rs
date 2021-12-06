@@ -4,12 +4,14 @@ use crate::d2_submarine_movement::move_submarine;
 use crate::d3_binary_diagnostic::run_diagnostic;
 use crate::d4_bingo::play_bingo;
 use crate::d5_hydrothermal_venture::draw_all_lines;
+use crate::d6_lanternfish::calc_lanternfish;
 
 mod d1_sonar_sweep;
 mod d2_submarine_movement;
 mod d3_binary_diagnostic;
 mod d4_bingo;
 mod d5_hydrothermal_venture;
+mod d6_lanternfish;
 
 fn main() {
     print!("Day 1 - 'Sonar Sweep' results: "); sonar_sweep();
@@ -17,6 +19,7 @@ fn main() {
     print!("Day 3 - 'Binary Diagnostics' results: "); run_diagnostic();
     print!("Day 4 - 'Bingo!' results: "); play_bingo();
     print!("Day 5 - 'Hydrothermal Ventures' results: "); draw_all_lines();
+    print!("Day 6 - 'Lanternfish' results: "); calc_lanternfish();
 }
 
 pub fn get_input_for_day(day: i8) -> String {
