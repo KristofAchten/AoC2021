@@ -1,6 +1,9 @@
+use std::time::Instant;
 use crate::{get_input_for_day, split_on, to_int_32};
 
 pub fn move_submarine() {
+    let now = Instant::now();
+
     let movements: Vec<String> = split_on(&get_input_for_day(2), "\n");
     let mut horizontal_pos = 0;
     let mut aim = 0;
@@ -22,5 +25,5 @@ pub fn move_submarine() {
         }
     }
 
-    println!("part 1 = {} ; part 2 = {}", horizontal_pos * aim, horizontal_pos * depth);
+    println!("part 1 = {} ; part 2 = {} (time: {}ms)", horizontal_pos * aim, horizontal_pos * depth, now.elapsed().as_millis());
 }

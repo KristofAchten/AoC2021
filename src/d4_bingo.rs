@@ -1,3 +1,4 @@
+use std::time::Instant;
 use crate::{get_input_for_day, split_on, to_int_32};
 
 struct Game {
@@ -17,8 +18,10 @@ struct Square {
 }
 
 pub fn play_bingo() {
+    let now = Instant::now();
+
     let (first_win, last_win) = play_game(parse_input());
-    println!("part 1 = {} ; part 2 = {}", first_win, last_win);
+    println!("part 1 = {} ; part 2 = {} (time: {}ms)", first_win, last_win, now.elapsed().as_millis());
 }
 
 fn play_game(mut game: Game) -> (i32, i32) {

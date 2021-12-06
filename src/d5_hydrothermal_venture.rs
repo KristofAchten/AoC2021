@@ -1,5 +1,6 @@
 use std::cmp::{max, min};
 use std::collections::HashMap;
+use std::time::Instant;
 
 use crate::{get_input_for_day, split_on, to_int_32};
 
@@ -15,6 +16,8 @@ struct Line {
 }
 
 pub fn draw_all_lines() {
+    let now = Instant::now();
+
     let lines = parse_input();
     let visited = HashMap::new();
     let visited_with_diags = HashMap::new();
@@ -23,7 +26,7 @@ pub fn draw_all_lines() {
     let nums = draw_lines(&lines, visited, false);
     let nums_with_diags = draw_lines(&lines, visited_with_diags, true);
 
-    println!("part 1 = {} ; part 2 = {}", nums, nums_with_diags);
+    println!("part 1 = {} ; part 2 = {} (time: {}ms)", nums, nums_with_diags, now.elapsed().as_millis());
 }
 
 fn draw_lines(lines: &Vec<Line>, mut visited: HashMap<Point, i32>, include_diags: bool) -> usize {
@@ -75,19 +78,13 @@ fn find_connected_points(p1: &Point, p2: &Point, include_diagonals: bool) -> Vec
         for x in min(p1.x, p2.x)..=max(p1.x, p2.x) {
             points.push(Point { x, y })
         }
-    } else if include_diagonals && p1.x > p2.x {
-        let diff = p1.x - p2.x;
-        let dy = if p1.y > p2.y { -1 } else { 1 };
-        for i in 0..=diff {
-            points.push(Point {x: p1.x - i, y: p1.y + (i * dy)});
-        }
     } else if include_diagonals {
-        let diff = p2.x - p1.x;
+        let diff = (p1.x - p2.x).abs();
+        let dx = if p1.x > p2.x { -1 } else { 1 };
         let dy = if p1.y > p2.y { -1 } else { 1 };
         for i in 0..=diff {
-            points.push(Point {x: p1.x + i, y: p1.y + (i * dy)});
+            points.push(Point {x: p1.x + (i * dx), y: p1.y + (i * dy)});
         }
     }
-
     return points;
 }
