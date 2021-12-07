@@ -83,7 +83,7 @@ fn find_connected_points(p1: &Point, p2: &Point, include_diagonals: bool) -> Vec
         let dx = if p1.x > p2.x { -1 } else { 1 };
         let dy = if p1.y > p2.y { -1 } else { 1 };
         for i in 0..=diff {
-            points.push(Point {x: p1.x + (i * dx), y: p1.y + (i * dy)});
+            points.push(Point { x: p1.x + (i * dx), y: p1.y + (i * dy) });
         }
     }
     return points;

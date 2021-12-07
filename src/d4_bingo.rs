@@ -1,4 +1,5 @@
 use std::time::Instant;
+
 use crate::{get_input_for_day, split_on, to_int_32};
 
 struct Game {

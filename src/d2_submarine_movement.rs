@@ -1,4 +1,5 @@
 use std::time::Instant;
+
 use crate::{get_input_for_day, split_on, to_int_32};
 
 pub fn move_submarine() {
@@ -20,7 +21,7 @@ pub fn move_submarine() {
             "forward" => {
                 horizontal_pos += val;
                 depth += aim * val;
-            },
+            }
             _ => {}
         }
     }

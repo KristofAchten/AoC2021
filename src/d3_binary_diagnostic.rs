@@ -1,4 +1,5 @@
 use std::time::Instant;
+
 use crate::{get_input_for_day, split_on, to_int_32};
 
 pub fn run_diagnostic() {
@@ -89,11 +90,11 @@ fn transpose(binary_nums: &Vec<String>) -> Vec<Vec<i32>> {
 
 fn most_common_value(vec: &Vec<i32>, size: usize) -> String {
     let more_zeros = vec.into_iter().filter(|v| v == &&to_int_32(&"0".to_string())).count() > size / 2;
-    return if more_zeros { "0".to_string() } else { "1".to_string() }
+    return if more_zeros { "0".to_string() } else { "1".to_string() };
 
 }
 
 fn least_common_value(vec: &Vec<i32>, size: usize) -> String {
     let more_zeros = vec.iter().filter(|v| v == &&to_int_32(&"0".to_string())).count() > size / 2;
-    return if more_zeros { "1".to_string() } else { "0".to_string() }
+    return if more_zeros { "1".to_string() } else { "0".to_string() };
 }
