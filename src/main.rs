@@ -7,6 +7,7 @@ use crate::d4_bingo::play_bingo;
 use crate::d5_hydrothermal_venture::draw_all_lines;
 use crate::d6_lanternfish::calc_lanternfish;
 use crate::d7_whale::calc_alignment;
+use crate::d8_digits::digits;
 
 mod d1_sonar_sweep;
 mod d2_submarine_movement;
@@ -15,6 +16,7 @@ mod d4_bingo;
 mod d5_hydrothermal_venture;
 mod d6_lanternfish;
 mod d7_whale;
+mod d8_digits;
 
 fn main() {
     print!("Day 1 - 'Sonar Sweep' results: ");
@@ -31,6 +33,8 @@ fn main() {
     calc_lanternfish();
     print!("Day 7 - 'Alignment' results: ");
     calc_alignment();
+    print!("Day 8 - 'Seven segment displays' results: ");
+    digits();
 }
 
 pub fn get_input_for_day(day: i8) -> String {
