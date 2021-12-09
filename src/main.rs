@@ -8,6 +8,7 @@ use crate::d5_hydrothermal_venture::draw_all_lines;
 use crate::d6_lanternfish::calc_lanternfish;
 use crate::d7_whale::calc_alignment;
 use crate::d8_digits::digits;
+use crate::d9_smoke_basin::find_smoke_flows;
 
 mod d1_sonar_sweep;
 mod d2_submarine_movement;
@@ -17,6 +18,7 @@ mod d5_hydrothermal_venture;
 mod d6_lanternfish;
 mod d7_whale;
 mod d8_digits;
+mod d9_smoke_basin;
 
 fn main() {
     print!("Day 1 - 'Sonar Sweep' results: ");
@@ -35,6 +37,8 @@ fn main() {
     calc_alignment();
     print!("Day 8 - 'Seven segment displays' results: ");
     digits();
+    print!("Day 9 - 'Smoke Basing' results: ");
+    find_smoke_flows();
 }
 
 pub fn get_input_for_day(day: i8) -> String {
