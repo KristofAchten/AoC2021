@@ -1,4 +1,5 @@
 use std::fs;
+use crate::d10_syntax::syntax_fixer;
 
 use crate::d1_sonar_sweep::sonar_sweep;
 use crate::d2_submarine_movement::move_submarine;
@@ -19,6 +20,7 @@ mod d6_lanternfish;
 mod d7_whale;
 mod d8_digits;
 mod d9_smoke_basin;
+mod d10_syntax;
 
 fn main() {
     print!("Day 1 - 'Sonar Sweep' results: ");
@@ -39,6 +41,8 @@ fn main() {
     digits();
     print!("Day 9 - 'Smoke Basing' results: ");
     find_smoke_flows();
+    print!("Day 10 - 'Syntax Scoring' results: ");
+    syntax_fixer();
 }
 
 pub fn get_input_for_day(day: i8) -> String {
