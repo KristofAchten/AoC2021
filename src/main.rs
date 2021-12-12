@@ -1,4 +1,5 @@
 use std::fs;
+use crate::d11_octopi::flash_octopi;
 use crate::d10_syntax::syntax_fixer;
 
 use crate::d1_sonar_sweep::sonar_sweep;
@@ -21,6 +22,7 @@ mod d7_whale;
 mod d8_digits;
 mod d9_smoke_basin;
 mod d10_syntax;
+mod d11_octopi;
 
 fn main() {
     print!("Day 1 - 'Sonar Sweep' results: ");
@@ -43,6 +45,8 @@ fn main() {
     find_smoke_flows();
     print!("Day 10 - 'Syntax Scoring' results: ");
     syntax_fixer();
+    print!("Day 11 - 'Dumbo Octopus' results: ");
+    flash_octopi();
 }
 
 pub fn get_input_for_day(day: i8) -> String {
