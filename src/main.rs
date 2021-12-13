@@ -2,6 +2,7 @@ use std::fs;
 use crate::d11_octopi::flash_octopi;
 use crate::d10_syntax::syntax_fixer;
 use crate::d12_paths::iterate_paths;
+use crate::d13_origami::fold_away;
 
 use crate::d1_sonar_sweep::sonar_sweep;
 use crate::d2_submarine_movement::move_submarine;
@@ -25,6 +26,7 @@ mod d9_smoke_basin;
 mod d10_syntax;
 mod d11_octopi;
 mod d12_paths;
+mod d13_origami;
 
 fn main() {
     print!("Day 1 - 'Sonar Sweep' results: ");
@@ -51,6 +53,8 @@ fn main() {
     flash_octopi();
     print!("Day 12 - 'Passage Pathing' results: ");
     iterate_paths();
+    print!("Day 13 - 'Transparent Origami' results: ");
+    fold_away();
 }
 
 pub fn get_input_for_day(day: i8) -> String {
