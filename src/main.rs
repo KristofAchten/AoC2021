@@ -1,9 +1,10 @@
 use std::fs;
-use crate::d11_octopi::flash_octopi;
+
 use crate::d10_syntax::syntax_fixer;
+use crate::d11_octopi::flash_octopi;
 use crate::d12_paths::iterate_paths;
 use crate::d13_origami::fold_away;
-
+use crate::d14_polymerization::extend_polym;
 use crate::d1_sonar_sweep::sonar_sweep;
 use crate::d2_submarine_movement::move_submarine;
 use crate::d3_binary_diagnostic::run_diagnostic;
@@ -27,6 +28,7 @@ mod d10_syntax;
 mod d11_octopi;
 mod d12_paths;
 mod d13_origami;
+mod d14_polymerization;
 
 fn main() {
     print!("Day 1 - 'Sonar Sweep' results: ");
@@ -55,6 +57,8 @@ fn main() {
     iterate_paths();
     print!("Day 13 - 'Transparent Origami' results: ");
     fold_away();
+    print!("Day 14 - 'Polymer Extension' results: ");
+    extend_polym();
 }
 
 pub fn get_input_for_day(day: i8) -> String {

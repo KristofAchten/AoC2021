@@ -26,7 +26,7 @@ impl fmt::Display for Board {
             println!();
         }
 
-        writeln!(f, "")
+        write!(f, "")
     }
 }
 
