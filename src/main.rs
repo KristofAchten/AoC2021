@@ -5,6 +5,7 @@ use crate::d11_octopi::flash_octopi;
 use crate::d12_paths::iterate_paths;
 use crate::d13_origami::fold_away;
 use crate::d14_polymerization::extend_polym;
+use crate::d15_chiton::chiton;
 use crate::d1_sonar_sweep::sonar_sweep;
 use crate::d2_submarine_movement::move_submarine;
 use crate::d3_binary_diagnostic::run_diagnostic;
@@ -29,6 +30,7 @@ mod d11_octopi;
 mod d12_paths;
 mod d13_origami;
 mod d14_polymerization;
+mod d15_chiton;
 
 fn main() {
     print!("Day 1 - 'Sonar Sweep' results: ");
@@ -59,6 +61,8 @@ fn main() {
     fold_away();
     print!("Day 14 - 'Polymer Extension' results: ");
     extend_polym();
+    print!("Day 15 - 'Chiton' results: ");
+    chiton();
 }
 
 pub fn get_input_for_day(day: i8) -> String {
