@@ -6,6 +6,7 @@ use crate::d12_paths::iterate_paths;
 use crate::d13_origami::fold_away;
 use crate::d14_polymerization::extend_polym;
 use crate::d15_chiton::chiton;
+use crate::d16_packet_decoder::decode_input;
 use crate::d1_sonar_sweep::sonar_sweep;
 use crate::d2_submarine_movement::move_submarine;
 use crate::d3_binary_diagnostic::run_diagnostic;
@@ -31,6 +32,7 @@ mod d12_paths;
 mod d13_origami;
 mod d14_polymerization;
 mod d15_chiton;
+mod d16_packet_decoder;
 
 fn main() {
     print!("Day 1 - 'Sonar Sweep' results: ");
@@ -63,6 +65,8 @@ fn main() {
     extend_polym();
     print!("Day 15 - 'Chiton' results: ");
     chiton();
+    print!("Day 16 - 'Packet Decoder' results: ");
+    decode_input();
 }
 
 pub fn get_input_for_day(day: i8) -> String {
@@ -76,4 +80,8 @@ pub fn to_int_32(str: &String) -> i32 {
 
 pub fn split_on(str: &str, on: &str) -> Vec<String> {
     return str.split(on).map(str::to_string).collect();
+}
+
+pub fn bin_string_to_dec(str: &str) -> isize {
+    isize::from_str_radix(str, 2).unwrap()
 }
