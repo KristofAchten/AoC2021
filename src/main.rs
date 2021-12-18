@@ -1,4 +1,7 @@
 use std::fs;
+use std::fs::File;
+use std::io::Write;
+use std::time::Instant;
 
 use crate::d10_syntax::syntax_fixer;
 use crate::d11_octopi::flash_octopi;
@@ -37,40 +40,33 @@ mod d16_packet_decoder;
 mod d17_trick_shot;
 
 fn main() {
-    print!("Day 1 - 'Sonar Sweep' results: ");
-    sonar_sweep();
-    print!("Day 2 - 'Submarine Movement' results: ");
-    move_submarine();
-    print!("Day 3 - 'Binary Diagnostics' results: ");
-    run_diagnostic();
-    print!("Day 4 - 'Bingo!' results: ");
-    play_bingo();
-    print!("Day 5 - 'Hydrothermal Ventures' results: ");
-    draw_all_lines();
-    print!("Day 6 - 'Lanternfish' results: ");
-    calc_lanternfish();
-    print!("Day 7 - 'Alignment' results: ");
-    calc_alignment();
-    print!("Day 8 - 'Seven Segment Displays' results: ");
-    digits();
-    print!("Day 9 - 'Smoke Basing' results: ");
-    find_smoke_flows();
-    print!("Day 10 - 'Syntax Scoring' results: ");
-    syntax_fixer();
-    print!("Day 11 - 'Dumbo Octopus' results: ");
-    flash_octopi();
-    print!("Day 12 - 'Passage Pathing' results: ");
-    iterate_paths();
-    print!("Day 13 - 'Transparent Origami' results: ");
-    fold_away();
-    print!("Day 14 - 'Polymer Extension' results: ");
-    extend_polym();
-    print!("Day 15 - 'Chiton' results: ");
-    chiton();
-    print!("Day 16 - 'Packet Decoder' results: ");
-    decode_input();
-    print!("Day 17 - 'Trick Shot' results: ");
-    simulate_shots();
+    let now = Instant::now();
+
+    let d1 = format!("Day 1 - 'Sonar Sweep' results: {}", sonar_sweep());
+    let d2 = format!("Day 2 - 'Submarine Movement' results: {}", move_submarine());
+    let d3 = format!("Day 3 - 'Binary Diagnostics' results: {}", run_diagnostic());
+    let d4 = format!("Day 4 - 'Bingo!' results: {}", play_bingo());
+    let d5 = format!("Day 5 - 'Hydrothermal Ventures' results: {}", draw_all_lines());
+    let d6 = format!("Day 6 - 'Lanternfish' results: {}", calc_lanternfish());
+    let d7 = format!("Day 7 - 'Alignment' results: {}", calc_alignment());
+    let d8 = format!("Day 8 - 'Seven Segment Displays' results: {}", digits());
+    let d9 = format!("Day 9 - 'Smoke Basing' results: {}", find_smoke_flows());
+    let d10 = format!("Day 10 - 'Syntax Scoring' results: {}", syntax_fixer());
+    let d11 = format!("Day 11 - 'Dumbo Octopus' results: {}", flash_octopi());
+    let d12 = format!("Day 12 - 'Passage Pathing' results: {}", iterate_paths());
+    let d13 = format!("Day 13 - 'Transparent Origami' results: {}", fold_away());
+    let d14 = format!("Day 14 - 'Polymer Extension' results: {}", extend_polym());
+    let d15 = format!("Day 15 - 'Chiton' results: {}", chiton());
+    let d16 = format!("Day 16 - 'Packet Decoder' results: {}", decode_input());
+    let d17 = format!("Day 17 - 'Trick Shot' results: {}", simulate_shots());
+
+    let exec_time = format!("\nTotal execution time: {}ms", now.elapsed().as_millis());
+    let result_string = [d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, exec_time].join("\n");
+
+    println!("{}", result_string);
+
+    fs::write("README.md", result_string);
+
 }
 
 pub fn get_input_for_day(day: i8) -> String {

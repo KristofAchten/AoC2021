@@ -3,7 +3,7 @@ use std::time::Instant;
 
 use crate::{get_input_for_day, split_on, to_int_32};
 
-pub fn chiton() {
+pub fn chiton() -> String {
     let now = Instant::now();
 
     let lines = parse_input();
@@ -25,7 +25,7 @@ pub fn chiton() {
 
     let res2 = 2814; //dijkstra(&new_lines); // Running this takes about 30s, so hardcoded answer.
 
-    println!("part 1 = {} ; part 2 = {} (time: {}ms)", res1, res2, now.elapsed().as_millis());
+    return format!("part 1 = {} ; part 2 = {} (time: {}ms)", res1, res2, now.elapsed().as_millis());
 }
 
 fn parse_input() -> Vec<Vec<i32>> {

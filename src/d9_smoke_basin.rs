@@ -3,13 +3,13 @@ use std::time::Instant;
 
 use crate::{get_input_for_day, split_on, to_int_32};
 
-pub fn find_smoke_flows() {
+pub fn find_smoke_flows() -> String {
     let now = Instant::now();
 
     let input = parse_input();
     let (res1, res2) = calc_minima_and_basins(&input);
 
-    println!("part 1 = {} ; part 2 = {} (time: {}ms)", res1, res2, now.elapsed().as_millis());
+    return format!("part 1 = {} ; part 2 = {} (time: {}ms)", res1, res2, now.elapsed().as_millis());
 }
 
 fn calc_minima_and_basins(input: &Vec<Vec<i32>>) -> (i32, i32) {

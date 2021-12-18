@@ -2,7 +2,7 @@ use std::time::Instant;
 
 use crate::{bin_string_to_dec, get_input_for_day};
 
-pub fn decode_input() {
+pub fn decode_input() -> String {
     let now = Instant::now();
 
     let input = get_input_for_day(16);
@@ -11,7 +11,7 @@ pub fn decode_input() {
     let (res1, _) = sum_versions(&binary);
     let (res2, _) = evaluate(&binary);
 
-    println!("part 1 = {} ; part 2 = {} (time: {}ms)", res1, res2, now.elapsed().as_millis());
+    return format!("part 1 = {} ; part 2 = {} (time: {}ms)", res1, res2, now.elapsed().as_millis());
 }
 
 fn sum_versions(input: &String) -> (isize, String) {

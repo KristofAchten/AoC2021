@@ -6,7 +6,7 @@ const OPENING_CHARS: [&'static str; 4] = ["(", "{", "[", "<"];
 const CLOSING_CHARS: [&'static str; 4] = [")", "}", "]", ">"];
 
 
-pub fn syntax_fixer() {
+pub fn syntax_fixer() -> String {
     let now = Instant::now();
 
     let input: Vec<Vec<String>> = parse_input();
@@ -14,7 +14,7 @@ pub fn syntax_fixer() {
     let (res1, legal_lines) = score_corrupted_lines(&input);
     let res2 = complete_lines(legal_lines);
 
-    println!("part 1 = {} ; part 2 = {} (time: {}ms)", res1, res2, now.elapsed().as_millis());
+    return format!("part 1 = {} ; part 2 = {} (time: {}ms)", res1, res2, now.elapsed().as_millis());
 }
 
 fn score_corrupted_lines(lines: &Vec<Vec<String>>) -> (i32, Vec<Vec<String>>) {

@@ -2,7 +2,7 @@ use std::time::Instant;
 
 use crate::{get_input_for_day, split_on, to_int_32};
 
-pub fn flash_octopi() {
+pub fn flash_octopi() -> String {
     let now = Instant::now();
 
     let mut input = parse_input();
@@ -10,7 +10,7 @@ pub fn flash_octopi() {
     let res1 = calc_flashes(&mut input, 100);
     let res2 = find_full_pulse(&mut input, 100);
 
-    println!("part 1 = {} ; part 2 = {} (time: {}ms)", res1, res2, now.elapsed().as_millis());
+    return format!("part 1 = {} ; part 2 = {} (time: {}ms)", res1, res2, now.elapsed().as_millis());
 }
 
 fn calc_flashes(input: &mut Vec<Vec<i32>>, steps: i32) -> i32 {

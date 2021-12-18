@@ -3,14 +3,14 @@ use std::time::Instant;
 
 use crate::{get_input_for_day, split_on};
 
-pub fn extend_polym() {
+pub fn extend_polym() -> String {
     let now = Instant::now();
     let (template, rules) = parse_input();
 
     let res1 = polymax(&template, &rules, 10);
     let res2 = polymax(&template, &rules, 40);
 
-    println!("part 1 = {} ; part 2 = {} (time: {}ms)", res1, res2, now.elapsed().as_millis());
+    return format!("part 1 = {} ; part 2 = {} (time: {}ms)", res1, res2, now.elapsed().as_millis());
 }
 
 fn parse_input() -> (String, HashMap<String, char>) {

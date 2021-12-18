@@ -8,14 +8,14 @@ struct Cave {
     is_small: bool,
 }
 
-pub fn iterate_paths() {
+pub fn iterate_paths() -> String {
     let now = Instant::now();
     let caves = parse_input();
 
     let res1 = count_all_paths(&caves, &"start".to_string(), &mut Vec::new());
     let res2 = count_all_paths_alternative(&caves, &"start".to_string(), &mut HashMap::new(), false);
 
-    println!("part 1 = {} ; part 2 = {} (time: {}ms)", res1, res2, now.elapsed().as_millis());
+    return format!("part 1 = {} ; part 2 = {} (time: {}ms)", res1, res2, now.elapsed().as_millis());
 }
 
 fn count_all_paths(caves: &HashMap<String, Cave>, val: &String, visited: &mut Vec<String>) -> i64 {

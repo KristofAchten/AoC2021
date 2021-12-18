@@ -11,6 +11,7 @@ struct Board {
     points: Vec<(i32, i32)>,
 }
 
+#[allow(unused_must_use)]
 impl fmt::Display for Board {
     fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
         let mut board_vec = vec![vec![" "; self.width as usize]; self.height as usize];
@@ -21,16 +22,16 @@ impl fmt::Display for Board {
 
         for line in board_vec {
             for val in line {
-                print!("{}", val);
+                write!(f, "{}", val);
             }
-            println!();
+            writeln!(f);
         }
 
         write!(f, "")
     }
 }
 
-pub fn fold_away() {
+pub fn fold_away() -> String {
     let now = Instant::now();
     let (mut board, instructions) = parse_input();
 
@@ -44,8 +45,7 @@ pub fn fold_away() {
         step(&mut board, &instructions[i]);
     }
 
-    println!("part 1 = {} ; part 2 = {} (time: {}ms)", res1, "printed below", now.elapsed().as_millis());
-    println!("{}", board);
+    return format!("part 1 = {} ; part 2 = {} (time: {}ms)\n\n{}", res1, "printed below", now.elapsed().as_millis(), board);
 }
 
 fn step(board: &mut Board, instruction: &String) {

@@ -2,7 +2,7 @@ use std::time::Instant;
 
 use crate::{get_input_for_day, split_on, to_int_32};
 
-pub fn calc_lanternfish() {
+pub fn calc_lanternfish() -> String {
     let now = Instant::now();
 
     let input: Vec<i32> = split_on(&get_input_for_day(6), ",").into_iter()
@@ -18,7 +18,7 @@ pub fn calc_lanternfish() {
     let res_1 = run(&buckets, 80);
     let res_2 = run(&buckets, 256);
 
-    println!("part 1 = {} ; part 2 = {} (time: {}ms)", res_1, res_2, now.elapsed().as_millis());
+    return format!("part 1 = {} ; part 2 = {} (time: {}ms)", res_1, res_2, now.elapsed().as_millis());
 }
 
 fn run(input: &Vec<usize>, steps: i32) -> usize {

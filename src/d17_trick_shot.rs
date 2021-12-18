@@ -2,7 +2,7 @@ use std::time::Instant;
 
 use crate::{get_input_for_day, split_on, to_int_32};
 
-pub fn simulate_shots() {
+pub fn simulate_shots() -> String {
     let now = Instant::now();
     let parts = split_on(&get_input_for_day(17)
         .replace("target area: x=", "")
@@ -14,7 +14,7 @@ pub fn simulate_shots() {
 
     let (res1, res2) = solve(&x_range, &y_range);
 
-    println!("part 1 = {} ; part 2 = {} (time: {}ms)", res1, res2, now.elapsed().as_millis());
+    return format!("part 1 = {} ; part 2 = {} (time: {}ms)", res1, res2, now.elapsed().as_millis());
 }
 
 fn solve(x_range: &(i32, i32), y_range: &(i32, i32)) -> (i32, i32) {

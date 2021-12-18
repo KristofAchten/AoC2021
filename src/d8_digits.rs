@@ -7,14 +7,14 @@ struct SignalCase {
     output: Vec<String>,
 }
 
-pub fn digits() {
+pub fn digits() -> String {
     let now = Instant::now();
     let signals: Vec<SignalCase> = parse_input();
 
     let res1 = calc_digits(&signals);
     let res2 = decode_digits(&signals);
 
-    println!("part 1 = {} ; part 2 = {} (time: {}ms)", res1, res2, now.elapsed().as_millis());
+    return format!("part 1 = {} ; part 2 = {} (time: {}ms)", res1, res2, now.elapsed().as_millis());
 }
 
 fn calc_digits(signals: &Vec<SignalCase>) -> usize {
