@@ -26,7 +26,7 @@ pub fn draw_all_lines() -> String {
     let nums = draw_lines(&lines, visited, false);
     let nums_with_diags = draw_lines(&lines, visited_with_diags, true);
 
-    return format!("part 1 = {} ; part 2 = {} (time: {}ms)", nums, nums_with_diags, now.elapsed().as_millis());
+    return format!("part 1 = `{}` ; part 2 = `{}` (time: {}ms)", nums, nums_with_diags, now.elapsed().as_millis());
 }
 
 fn draw_lines(lines: &Vec<Line>, mut visited: HashMap<Point, i32>, include_diags: bool) -> usize {

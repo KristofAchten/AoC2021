@@ -50,7 +50,7 @@ pub fn run_diagnostic() -> String {
     let oxygen = isize::from_str_radix(&oxygen_binary, 2).unwrap();
     let co2 = isize::from_str_radix(&co2_binary, 2).unwrap();
 
-    return format!("part 1 = {} ; part 2 = {} (time: {}ms)", gamma * epsilon, oxygen * co2, now.elapsed().as_millis());
+    return format!("part 1 = `{}` ; part 2 = `{}` (time: {}ms)", gamma * epsilon, oxygen * co2, now.elapsed().as_millis());
 }
 
 fn to_most_common_value(values_vac: &Vec<Vec<i32>>, size: usize) -> Vec<String> {

@@ -10,7 +10,7 @@ pub fn extend_polym() -> String {
     let res1 = polymax(&template, &rules, 10);
     let res2 = polymax(&template, &rules, 40);
 
-    return format!("part 1 = {} ; part 2 = {} (time: {}ms)", res1, res2, now.elapsed().as_millis());
+    return format!("part 1 = `{}` ; part 2 = `{}` (time: {}ms)", res1, res2, now.elapsed().as_millis());
 }
 
 fn parse_input() -> (String, HashMap<String, char>) {

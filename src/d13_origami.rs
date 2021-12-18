@@ -14,12 +14,12 @@ struct Board {
 #[allow(unused_must_use)]
 impl fmt::Display for Board {
     fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
-        let mut board_vec = vec![vec![" "; self.width as usize]; self.height as usize];
-
+        let mut board_vec = vec![vec!["_"; self.width as usize]; self.height as usize];
         for (x, y) in &self.points {
             board_vec[y.clone() as usize][x.clone() as usize] = "X";
         }
 
+        writeln!(f);
         for line in board_vec {
             for val in line {
                 write!(f, "{}", val);
@@ -45,7 +45,7 @@ pub fn fold_away() -> String {
         step(&mut board, &instructions[i]);
     }
 
-    return format!("part 1 = {} ; part 2 = {} (time: {}ms)\n\n{}", res1, "printed below", now.elapsed().as_millis(), board);
+    return format!("part 1 = `{}` ; part 2 = `{}` (time: {}ms)\n\n`{}`", res1, "printed below", now.elapsed().as_millis(), board);
 }
 
 fn step(board: &mut Board, instruction: &String) {

@@ -14,7 +14,7 @@ pub fn simulate_shots() -> String {
 
     let (res1, res2) = solve(&x_range, &y_range);
 
-    return format!("part 1 = {} ; part 2 = {} (time: {}ms)", res1, res2, now.elapsed().as_millis());
+    return format!("part 1 = `{}` ; part 2 = `{}` (time: {}ms)", res1, res2, now.elapsed().as_millis());
 }
 
 fn solve(x_range: &(i32, i32), y_range: &(i32, i32)) -> (i32, i32) {

@@ -11,7 +11,7 @@ pub fn decode_input() -> String {
     let (res1, _) = sum_versions(&binary);
     let (res2, _) = evaluate(&binary);
 
-    return format!("part 1 = {} ; part 2 = {} (time: {}ms)", res1, res2, now.elapsed().as_millis());
+    return format!("part 1 = `{}` ; part 2 = `{}` (time: {}ms)", res1, res2, now.elapsed().as_millis());
 }
 
 fn sum_versions(input: &String) -> (isize, String) {

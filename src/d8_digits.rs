@@ -14,7 +14,7 @@ pub fn digits() -> String {
     let res1 = calc_digits(&signals);
     let res2 = decode_digits(&signals);
 
-    return format!("part 1 = {} ; part 2 = {} (time: {}ms)", res1, res2, now.elapsed().as_millis());
+    return format!("part 1 = `{}` ; part 2 = `{}` (time: {}ms)", res1, res2, now.elapsed().as_millis());
 }
 
 fn calc_digits(signals: &Vec<SignalCase>) -> usize {

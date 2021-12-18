@@ -26,5 +26,5 @@ pub fn move_submarine() -> String{
         }
     }
 
-    return format!("part 1 = {} ; part 2 = {} (time: {}ms)", horizontal_pos * aim, horizontal_pos * depth, now.elapsed().as_millis());
+    return format!("part 1 = `{}` ; part 2 = `{}` (time: {}ms)", horizontal_pos * aim, horizontal_pos * depth, now.elapsed().as_millis());
 }

@@ -24,5 +24,5 @@ pub fn calc_alignment() -> String {
         total_avg += (avg_diff * (avg_diff + 1)) / 2;
     }
 
-    return format!("part 1 = {} ; part 2 = {} (time: {}ms)", total_med, total_avg, now.elapsed().as_millis());
+    return format!("part 1 = `{}` ; part 2 = `{}` (time: {}ms)", total_med, total_avg, now.elapsed().as_millis());
 }

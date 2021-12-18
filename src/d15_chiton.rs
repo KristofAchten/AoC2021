@@ -25,7 +25,7 @@ pub fn chiton() -> String {
 
     let res2 = 2814; //dijkstra(&new_lines); // Running this takes about 30s, so hardcoded answer.
 
-    return format!("part 1 = {} ; part 2 = {} (time: {}ms)", res1, res2, now.elapsed().as_millis());
+    return format!("part 1 = `{}` ; part 2 = `{}` (time: {}ms)", res1, res2, now.elapsed().as_millis());
 }
 
 fn parse_input() -> Vec<Vec<i32>> {

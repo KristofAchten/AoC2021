@@ -18,7 +18,7 @@ pub fn calc_lanternfish() -> String {
     let res_1 = run(&buckets, 80);
     let res_2 = run(&buckets, 256);
 
-    return format!("part 1 = {} ; part 2 = {} (time: {}ms)", res_1, res_2, now.elapsed().as_millis());
+    return format!("part 1 = `{}` ; part 2 = `{}` (time: {}ms)", res_1, res_2, now.elapsed().as_millis());
 }
 
 fn run(input: &Vec<usize>, steps: i32) -> usize {

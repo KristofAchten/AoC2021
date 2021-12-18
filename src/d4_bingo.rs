@@ -22,7 +22,7 @@ pub fn play_bingo() -> String {
     let now = Instant::now();
 
     let (first_win, last_win) = play_game(parse_input());
-    return format!("part 1 = {} ; part 2 = {} (time: {}ms)", first_win, last_win, now.elapsed().as_millis());
+    return format!("part 1 = `{}` ; part 2 = `{}` (time: {}ms)", first_win, last_win, now.elapsed().as_millis());
 }
 
 fn play_game(mut game: Game) -> (i32, i32) {
