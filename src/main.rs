@@ -7,6 +7,7 @@ use crate::d13_origami::fold_away;
 use crate::d14_polymerization::extend_polym;
 use crate::d15_chiton::chiton;
 use crate::d16_packet_decoder::decode_input;
+use crate::d17_trick_shot::simulate_shots;
 use crate::d1_sonar_sweep::sonar_sweep;
 use crate::d2_submarine_movement::move_submarine;
 use crate::d3_binary_diagnostic::run_diagnostic;
@@ -33,6 +34,7 @@ mod d13_origami;
 mod d14_polymerization;
 mod d15_chiton;
 mod d16_packet_decoder;
+mod d17_trick_shot;
 
 fn main() {
     print!("Day 1 - 'Sonar Sweep' results: ");
@@ -49,7 +51,7 @@ fn main() {
     calc_lanternfish();
     print!("Day 7 - 'Alignment' results: ");
     calc_alignment();
-    print!("Day 8 - 'Seven segment displays' results: ");
+    print!("Day 8 - 'Seven Segment Displays' results: ");
     digits();
     print!("Day 9 - 'Smoke Basing' results: ");
     find_smoke_flows();
@@ -67,6 +69,8 @@ fn main() {
     chiton();
     print!("Day 16 - 'Packet Decoder' results: ");
     decode_input();
+    print!("Day 17 - 'Trick Shot' results: ");
+    simulate_shots();
 }
 
 pub fn get_input_for_day(day: i8) -> String {
