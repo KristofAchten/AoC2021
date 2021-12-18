@@ -12,12 +12,12 @@ pub fn simulate_shots() {
     let x_range = (to_int_32(&parts[0]), to_int_32(&parts[1]));
     let y_range = (to_int_32(&parts[2]), to_int_32(&parts[3]));
 
-    let (res1, res2) = find_neg_y(&x_range, &y_range);
+    let (res1, res2) = solve(&x_range, &y_range);
 
     println!("part 1 = {} ; part 2 = {} (time: {}ms)", res1, res2, now.elapsed().as_millis());
 }
 
-fn find_neg_y(x_range: &(i32, i32), y_range: &(i32, i32)) -> (i32, i32) {
+fn solve(x_range: &(i32, i32), y_range: &(i32, i32)) -> (i32, i32) {
     let mut best_y_pos = -9000;
     let mut cnt = 0;
     for x_vi in 1..1000 {
