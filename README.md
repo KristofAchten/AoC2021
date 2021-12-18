@@ -1,4 +1,4 @@
-# AoC 2020
+# AoC 2021
 
 This repository contains my solution for 2021s [Advent of Code challenges!](https://adventofcode.com/2021)
 I will be participating in `Rust` ([source-files](https://github.com/KristofAchten/AoC2021/tree/master/src)).
