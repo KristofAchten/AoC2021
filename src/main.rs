@@ -44,7 +44,7 @@ mod d19_beacon_scanner;
 mod d20_trench_map;
 
 fn main() {
-    let pre = "# AoC 2020\n\nThis repository contains my solution for 2021s [Advent of Code challenges!]\
+    let pre = "# AoC 2021\n\nThis repository contains my solution for 2021s [Advent of Code challenges!]\
     (https://adventofcode.com/2021)\nI will be participating in `Rust` ([source-files](https://github.com/KristofAchten/AoC2021/tree/master/src)).\
     \n\nThe output for the challenges (given my personalized input files) is automatically generated and shown below.\n\n# Solutions";
 
