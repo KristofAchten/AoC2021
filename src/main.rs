@@ -12,6 +12,7 @@ use crate::d17_trick_shot::simulate_shots;
 use crate::d18_snailfish::do_math;
 use crate::d19_beacon_scanner::scan;
 use crate::d1_sonar_sweep::sonar_sweep;
+use crate::d20_trench_map::enhance;
 use crate::d2_submarine_movement::move_submarine;
 use crate::d3_binary_diagnostic::run_diagnostic;
 use crate::d4_bingo::play_bingo;
@@ -40,6 +41,7 @@ mod d16_packet_decoder;
 mod d17_trick_shot;
 mod d18_snailfish;
 mod d19_beacon_scanner;
+mod d20_trench_map;
 
 fn main() {
     let pre = "# AoC 2020\n\nThis repository contains my solution for 2021s [Advent of Code challenges!]\
@@ -67,9 +69,10 @@ fn main() {
     let d17 = format!("- Day 17 - 'Trick Shot' results: {}", simulate_shots());
     let d18 = format!("- Day 18 - 'Snailfish' results: {}", do_math());
     let d19 = format!("- Day 19 - 'Beacon Scanner' results: {}", scan(true));
+    let d20 = format!("- Day 20 - 'Trench Map' results: {}", enhance());
 
     let exec_time = format!("\nTotal execution time: `{}ms`", now.elapsed().as_millis());
-    let result_string = [pre.to_string(), d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, d18, d19, exec_time].join("\r\n");
+    let result_string = [pre.to_string(), d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, d18, d19, d20, exec_time].join("\r\n");
 
     println!("{}", result_string);
 
