@@ -22,8 +22,9 @@ pub fn roll_dice() -> String {
     let input = parse_input();
 
     let res1 = roll_deterministic_die(&input);
+    let res2 = solve(input.0, input.1, 0, 0);
 
-    return format!("part 1 = `{}` ; part 2 = `{}` (time: {}ms)", res1, "Todo", now.elapsed().as_millis());
+    return format!("part 1 = `{}` ; part 2 = `{}` (time: {}ms)", res1, res2.0.max(res2.1), now.elapsed().as_millis());
 }
 
 fn roll_deterministic_die((p1, p2): &(i64, i64)) -> i64 {
@@ -52,6 +53,26 @@ fn roll_deterministic_die((p1, p2): &(i64, i64)) -> i64 {
     }
 
     return die.num_of_rolls * score.0.min(score.1);
+}
+
+fn solve(p1: i64, p2: i64, s1: i64, s2: i64) -> (i64, i64) {
+    if s1 >= 21 {
+        return (1, 0);
+    } else if s2 >= 21 {
+        return (0, 1);
+    }
+
+    let mut total_wins = (0, 0);
+    for (roll, times) in [(3, 1), (4, 3), (5, 6), (6, 7), (7, 6), (8, 3), (9, 1)] {
+        let pos = (p1 + roll - 1) % 10 + 1;
+        let score = s1 + pos;
+
+        let (p2_wins, p1_wins) = solve(p2, pos, s2, score);
+        total_wins.0 += p1_wins * times;
+        total_wins.1 += p2_wins * times;
+    }
+
+    return total_wins;
 }
 
 fn parse_input() -> (i64, i64) {
