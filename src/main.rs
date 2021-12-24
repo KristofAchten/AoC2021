@@ -14,6 +14,8 @@ use crate::d19_beacon_scanner::scan;
 use crate::d1_sonar_sweep::sonar_sweep;
 use crate::d20_trench_map::enhance;
 use crate::d21_dirac_dice::roll_dice;
+use crate::d22_reactor_reboot::reboot;
+use crate::d23_amphipod::amphipod;
 use crate::d2_submarine_movement::move_submarine;
 use crate::d3_binary_diagnostic::run_diagnostic;
 use crate::d4_bingo::play_bingo;
@@ -44,6 +46,8 @@ mod d18_snailfish;
 mod d19_beacon_scanner;
 mod d20_trench_map;
 mod d21_dirac_dice;
+mod d23_amphipod;
+mod d22_reactor_reboot;
 
 fn main() {
     let pre = "# AoC 2021\n\nThis repository contains my solution for 2021s [Advent of Code challenges!]\
@@ -73,9 +77,11 @@ fn main() {
     let d19 = format!("- Day 19 - 'Beacon Scanner' results: {}", scan(true));
     let d20 = format!("- Day 20 - 'Trench Map' results: {}", enhance());
     let d21 = format!("- Day 21 - 'Dirac Dice' results: {}", roll_dice());
+    let d22 = format!("- Day 22 - 'Reactor Reboot' results: {}", reboot());
+    let d23 = format!("- Day 23 - 'Amphipod' results: {}", amphipod());
 
     let exec_time = format!("\nTotal execution time: `{}ms`", now.elapsed().as_millis());
-    let result_string = [pre.to_string(), d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, d18, d19, d20, d21, exec_time].join("\r\n");
+    let result_string = [pre.to_string(), d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, d18, d19, d20, d21, d22, d23, exec_time].join("\r\n");
 
     println!("{}", result_string);
 
